@@ -1,12 +1,18 @@
-# TPML
+# TML
 Taylor Markup Language(TML) is a markup language I use for [my blog and personal website](http://www.taylorpetrick.com). Since my blogging platform prefers statically generate content, I needed a tool to produce HTML blobs for posts. For a while I wrote the HTML myself, but I've recently started converting quotes, apostrophes and dashes to their typographically correct Unicode values. I decided to write a tool to automate the process, as well as make it easier to write the posts.
 
 The language is quite simple to parse. First, a pass is made over the whole document to extract `Function` and `Text` elements. Anything that isn't a function is assumed to be plain text. Functions are executed to output HTML blobs from their inputs, while text elements undergo additional processing to replace quotes, add URLs and perform styling like bold and italic. After processing, each text element is output in a `<p></p>` block as HTML.
 
-# Usage and Contributing
+## Disclaimer
 I don't plan to merge any pull requests or guarantee support for the code. Any changes or improvements I make to the tool will be made available here on GitHub. Anyone is welcome to use it for their own projects, of course. Note that current implementation in GitHub still has a few issues which are covered below. These aren't really show-stoppers for me, but I will try to fix them.
 
-# Functions
+## Usage
+To use TML, simply write a document in the markup language. Then, run it as follows:
+```
+./tml_parser input.tml output.html
+```
+
+## Functions
 Utility functions that emit HTML can be defined in C++ and then used as follows:
 ```
 @function(param1, param2, ...)
@@ -19,7 +25,7 @@ The following functions are included:
 
 The output of the built-in functions are specific to the HTML used on my website, so I won't go into details of what they produce in terms of output.
 
-# Inline syntax
+## Inline syntax
 Bold, italic and inline code elements are generated with the following syntax:
 ```
 *bold*
@@ -34,7 +40,7 @@ These produce the following HTML elements:
 <span class='inline-code'></span>
 ```
 
-# URL syntax
+## URL syntax
 Urls are generated as follows:
 ```
 [url-label](url-link)
@@ -52,7 +58,7 @@ would produce this html blob:
 <a href='http://www.taylorpetrick.com' target='_blank'>blog</a>
 ```
 
-# Symbol replacements
+## Symbol replacements
 The following replacements are made to make quotes/dashes more typographically correct:
 * apostrophe (') to &#8217 (&#8217;)
 
@@ -65,5 +71,20 @@ The following replacements are made to make quotes/dashes more typographically c
 * en-dash (--) to &#8211 (&#8211;)
 * em-dash  (---) to &#8212 (&#8212;)
 
-# License
+## Escape syntax
+If a `\` character is put before any of the special characters or quotes, that character or quote will not be parsed or replaced. It'll be treated as a regular symbol.
+
+## Issues
+Since the parsing and replacement is quite simple (no parse tree, no context), there are a few potential parse issues that can arise.
+
+Functions must start on their own line and cannot be embedded in text. This isn't really an issue, but a limitation that doesn't affect my usage.
+
+Apostrophes (') and single quotes (') are the same ASCII character. That means this phrase:
+```
+'Nice quotes'
+```
+Could be confusing to the replacer. `Quotes'` could be plural ownership, or it could be the end of a string wrapped in single-quotes. I try to handle this intelligently in the `ApostropheReplacer`, but there might be some cases that aren't covered. TL;DR: be mindful of using single quote wrapped strings in the same block as apostrophes. Double quotes are always fine.
+
+
+## License
 TML and the C++ parser are distributed under [The MIT License](https://opensource.org/licenses/MIT).
