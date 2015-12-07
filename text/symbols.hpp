@@ -88,10 +88,10 @@ namespace Symbols
     }
 
     /// Reads an input symbol from a stream and throws an exception
-    /// if no symbol is found
-    static inline int readSymbol(std::istream& pStream, bool except=true)
+    /// if no symbol is found. Returns the EOF status of the stream.
+    static inline bool readSymbol(std::istream& pStream, int& pSymbol, bool except=true)
     {
-        int symbol = pStream.get();
+        pSymbol = pStream.get();
         
         if (pStream.eof())
         {
@@ -99,9 +99,11 @@ namespace Symbols
             {
                 throw(EOFException());
             }
+
+            return false;
         }
 
-        return symbol;
+        return true;
     }
 }
 

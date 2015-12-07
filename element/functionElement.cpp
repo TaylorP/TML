@@ -19,16 +19,18 @@ void FunctionElement::parse(std::istream& pStream)
     // Parse the function
     while (true)
     {
-        char symbol = Symbols::readSymbol(pStream);
+        int symbol;
+        Symbols::readSymbol(pStream, symbol);
 
+        char character = char(symbol);
         switch (mState)
         {
             case eFunctionEntry:
             {
-                if (Symbols::isLetter(symbol))
+                if (Symbols::isLetter(character))
                 {
                     mState = eFunctionLabel;
-                    parseStream << symbol;
+                    parseStream << character;
                 }
                 else
                 {
@@ -41,11 +43,11 @@ void FunctionElement::parse(std::istream& pStream)
 
             case eFunctionLabel:
             {
-                if (Symbols::isLetter(symbol))
+                if (Symbols::isLetter(character))
                 {
-                    parseStream << symbol;
+                    parseStream << character;
                 }
-                else if (Symbols::isOpen(symbol))
+                else if (Symbols::isOpen(character))
                 {
                     mState = eParamEntry;
                     mName = parseStream.str();
@@ -62,11 +64,11 @@ void FunctionElement::parse(std::istream& pStream)
 
             case eParamEntry:
             {
-                if (Symbols::isSpace(symbol))
+                if (Symbols::isSpace(character))
                 {
                     // pass
                 }
-                else if (Symbols::isQuote(symbol))
+                else if (Symbols::isQuote(character))
                 {
                     mState = eParamLabel;
                 }
@@ -81,7 +83,7 @@ void FunctionElement::parse(std::istream& pStream)
 
             case eParamLabel:
             {
-                if (Symbols::isQuote(symbol))
+                if (Symbols::isQuote(character))
                 {
                     mState = eParamExit;
                     mParams.push_back(parseStream.str());
@@ -89,7 +91,7 @@ void FunctionElement::parse(std::istream& pStream)
                 }
                 else
                 {
-                    parseStream << symbol;
+                    parseStream << character;
                 }
 
                 break;
@@ -97,15 +99,15 @@ void FunctionElement::parse(std::istream& pStream)
 
             case eParamExit:
             {
-                if (Symbols::isSpace(symbol))
+                if (Symbols::isSpace(character))
                 {
                     // pass
                 }
-                else if (Symbols::isDelim(symbol))
+                else if (Symbols::isDelim(character))
                 {
                     mState = eParamEntry;
                 }
-                else if (Symbols::isClosed(symbol))
+                else if (Symbols::isClosed(character))
                 {
                     return;
                 }

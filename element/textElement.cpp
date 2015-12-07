@@ -14,9 +14,9 @@ void TextElement::parse(std::istream& pStream)
 
     while (true)
     {
-        int symbol = Symbols::readSymbol(pStream, false);
+        int symbol;
 
-        if (pStream.eof())
+        if (!Symbols::readSymbol(pStream, symbol, false))
         {
             break;
         }
