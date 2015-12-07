@@ -23,6 +23,9 @@ public:
     /// Runs the replacers on an input string instead of a stream
     void replace(std::ostream& pOut, const std::string& pString);
 
+    /// Returns the replacer state
+    ReplacerState state() const;
+
 private:
 
     /// The list of replacers

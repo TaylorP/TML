@@ -11,12 +11,12 @@
 ReplacerTable::ReplacerTable()
 {
     // Register built in replacers
-    mReplacers.push_back(new ApostropheReplacer());
-    mReplacers.push_back(new DashReplacer());
-    mReplacers.push_back(new UrlReplacer());
+    mReplacers.push_back(new ApostropheReplacer(this));
+    mReplacers.push_back(new DashReplacer(this));
+    mReplacers.push_back(new UrlReplacer(this));
 
     // Do pair replacement last since it emits HTML
-    mReplacers.push_back(new PairReplacer());
+    mReplacers.push_back(new PairReplacer(this));
 }
 
 ReplacerTable::~ReplacerTable()
@@ -103,6 +103,21 @@ void ReplacerTable::replace(std::ostream& pOut, const std::string& pString)
 {
     std::stringstream stream(pString);
     replace(pOut, stream);
+}
+
+ReplacerState ReplacerTable::state() const
+{
+    std::vector<Replacer*>::const_iterator itr;
+    for(itr = mReplacers.begin(); itr != mReplacers.end(); ++itr)
+    {
+        ReplacerState state = ((Replacer*)(*itr))->state();
+        if (state != eStateNormal)
+        {
+            return state;
+        }
+    }
+
+    return eStateNormal;
 }
 
 void ReplacerTable::reset()

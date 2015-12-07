@@ -13,7 +13,7 @@ class UrlReplacer : public Replacer
 {
 public:
     /// Constructs a new url replacer
-    UrlReplacer();
+    UrlReplacer(const ReplacerTable* pTable);
 
     /// Replaces dashes and output html
     virtual std::string replace(const char pPrev,
@@ -22,6 +22,9 @@ public:
                                 const bool pSkip,
                                 bool& pConsume);
     
+    /// Not used in this replacer
+    virtual ReplacerState state() const { return eStateNormal; }
+
     /// Resets found state
     virtual void reset();
 

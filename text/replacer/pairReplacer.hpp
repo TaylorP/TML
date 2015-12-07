@@ -13,7 +13,7 @@ class PairReplacer : public Replacer
 {
 public:
     /// Constructs a new pair replacer
-    PairReplacer();
+    PairReplacer(const ReplacerTable* pTable);
 
     /// Destroys a pair replacer
     ~PairReplacer();
@@ -24,6 +24,9 @@ public:
                                 const char pNext,
                                 const bool pSkip,
                                 bool& pConsume);
+
+    /// Used to indicate if a code block is active
+    virtual ReplacerState state() const;
 
     /// Resets the pair replacements
     virtual void reset();

@@ -2,23 +2,26 @@
 #include "text/colors.hpp"
 #include "text/symbols.hpp"
 
-PairReplacer::PairReplacer()
+PairReplacer::PairReplacer(const ReplacerTable* pTable)
+    : Replacer(pTable)
 {
     // Style replacements
     mReplacements['*'] =
-        new PairReplacement("<b>", "</b>");
+        new PairReplacement("<b>", "</b>", eStateNormal);
     mReplacements['_'] =
-        new PairReplacement("<i>", "</i>");
+        new PairReplacement("<i>", "</i>",  eStateNormal);
     mReplacements['`'] =
-        new PairReplacement("<span class=\'inline-code\'>", "</span>");
+        new PairReplacement("<span class=\'inline-code\'>",
+                            "</span>",
+                            eStateCode);
 
     // Single quote replacements
     mReplacements['\''] =
-        new PairReplacement("&#8216;", "&#8217;");
+        new PairReplacement("&#8216;", "&#8217;", eStateNormal);
 
     // Double quote replacements
     mReplacements['"'] =
-        new PairReplacement("&#8220;", "&#8221;");
+        new PairReplacement("&#8220;", "&#8221;", eStateNormal);
 }
 
 PairReplacer::~PairReplacer()
@@ -45,6 +48,22 @@ std::string PairReplacer::replace(const char pPrev,
     }
 
     return "";
+}
+
+ReplacerState PairReplacer::state() const
+{
+    // Reset all replacements to their default
+    std::unordered_map<char, PairReplacement*>::const_iterator itr;
+    for(itr = mReplacements.begin(); itr != mReplacements.end(); itr++)
+    {
+        ReplacerState state = ((PairReplacement*)itr->second)->state();
+        if (state != eStateNormal)
+        {
+            return state;
+        }
+    }
+
+    return eStateNormal;
 }
 
 void PairReplacer::reset()

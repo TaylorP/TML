@@ -20,5 +20,5 @@ tml_parse: $(PLAIN_OBJ)
 
 .PHONY: clean
 clean:
-	rm -rf *.o
+	find . -name "*.o" -type f -delete
 	rm -f tml_parse

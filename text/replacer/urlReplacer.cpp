@@ -1,8 +1,9 @@
+#include "text/replacer/replacerTable.hpp"
 #include "text/replacer/urlReplacer.hpp"
 #include "text/symbols.hpp"
 
-UrlReplacer::UrlReplacer()
-    : mState(eLabelEnter), mUseTarget(false)
+UrlReplacer::UrlReplacer(const ReplacerTable* pTable)
+    : Replacer(pTable), mState(eLabelEnter), mUseTarget(false)
 {
 }
 
@@ -12,6 +13,11 @@ std::string UrlReplacer::replace(const char pPrev,
                                  const bool pSkip,
                                  bool& pConsume)
 {
+    if (mTable->state() == eStateCode)
+    {
+        return "";
+    }
+
     switch (mState)
     {
         case eLabelEnter:

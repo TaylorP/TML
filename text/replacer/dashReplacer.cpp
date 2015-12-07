@@ -1,8 +1,8 @@
 #include "text/replacer/dashReplacer.hpp"
 #include "text/symbols.hpp"
 
-DashReplacer::DashReplacer()
-    : mCount(0)
+DashReplacer::DashReplacer(const ReplacerTable* pTable)
+    : Replacer(pTable), mCount(0)
 {
 }
 
