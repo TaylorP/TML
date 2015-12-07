@@ -6,11 +6,20 @@ The language is quite simple to parse. First, a pass is made over the whole docu
 ## Disclaimer
 I don't plan to merge any pull requests or guarantee support for the code. Any changes or improvements I make to the tool will be made available here on GitHub. Anyone is welcome to use it for their own projects, of course. Note that current implementation in GitHub still has a few issues which are covered below. These aren't really show-stoppers for me, but I will try to fix them.
 
+## Building
+Just run make in the checked out directory!
+```
+make
+```
+
+There are no build files for Windows or OS X, but it should be fairly straight forward to create them. Everything is written using the C++11 standard lib; there should be no platform specific code. Let me know if something doesn't work on another platform, though.
+
 ## Usage
-To use TML, simply write a document in the markup language. Then, run it as follows:
+To use TML simply write a document in the markup language, then parse the  it as follows:
 ```
 ./tml_parser input.tml output.html
 ```
+An example file `input.tml` is included in this repo. 
 
 ## Functions
 Utility functions that emit HTML can be defined in C++ and then used as follows:
