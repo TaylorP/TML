@@ -1,6 +1,6 @@
 IDIR=./
 CC=g++
-CFLAGS=-std=c++11 -I$(IDIR)
+CFLAGS=-std=c++11 -O3 -I$(IDIR)
 PLAIN_OBJ = main.o \
 			element/functionElement.o \
 			element/textElement.o \
