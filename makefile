@@ -1,3 +1,4 @@
+INSTALL_PATH?=/usr/local/bin
 IDIR=./
 CC=g++
 CFLAGS=-std=c++11 -O3 -I$(IDIR)
@@ -18,7 +19,9 @@ PLAIN_OBJ = main.o \
 tml_parse: $(PLAIN_OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
-.PHONY: clean
+.PHONY: clean install
 clean:
 	find . -name "*.o" -type f -delete
 	rm -f tml_parse
+install: tml_parse
+	install -m 0755 tml_parse $(INSTALL_PATH)/tml_parse

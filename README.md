@@ -12,6 +12,11 @@ Just run make in the checked out directory!
 make
 ```
 
+Additionally, you can use the `install` target to build the binary and place it in `/usr/local/bin`:
+```
+sudo make install
+```
+
 There are no build files for Windows or OS X, but it should be fairly straight forward to create them. Everything is written using the C++11 standard lib; there should be no platform specific code. Let me know if something doesn't work on another platform, though.
 
 ## Usage
