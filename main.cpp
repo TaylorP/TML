@@ -1,25 +1,30 @@
 #include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
+#include <iostream>
 
 #include "exception/exception.hpp"
 #include "parser/parser.hpp"
 
 int main(int argc, char** argv)
 {
-    if (argc == 3)
+    if (argc == 2 || argc == 3)
     {
-        std::ifstream fin;
-        fin.open(argv[1], std::ios::in);
-
-        std::ofstream fout;
-        fout.open(argv[2], std::ios::out);
-
         try
         {
             Parser parser;
-            parser.parse(fout, fin);
+
+            std::ifstream in;
+            in.open(argv[1], std::ios::in);
+
+            if (argc == 3)
+            {
+                std::ofstream fout;
+                fout.open(argv[2], std::ios::out);
+                parser.parse(fout, in);
+            }
+            else
+            {
+                parser.parse(std::cout, in);
+            }
         }
         catch (const Exception& e)
         {
@@ -29,7 +34,7 @@ int main(int argc, char** argv)
     }
     else
     {
-        std::cout << "Usage: tml_parse <input-file> <output-file>"
+        std::cout << "Usage: tml_parse <input-file> [output-file]"
                   << std::endl;
     }
 
