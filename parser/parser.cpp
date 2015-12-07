@@ -8,7 +8,7 @@ void Parser::parse(std::ostream& pOut, std::istream& pIn)
     while (true)
     {
         int c = pIn.peek();
-        if (c == EOF)
+        if (pIn.eof())
         {
             break;
         }

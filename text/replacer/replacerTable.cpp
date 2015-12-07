@@ -42,7 +42,7 @@ void ReplacerTable::replace(std::ostream& pOut, std::istream& pIn)
     {
         // Abort once EOF is reached
         int i = pIn.get();
-        if (i == EOF)
+        if (pIn.eof())
         {
             break;
         }

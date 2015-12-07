@@ -2,7 +2,6 @@
 #define SYMBOL_HPP
 
 #include <ctype.h>
-#include <cstdio>
 #include <iostream>
 
 #include "exception/eofException.hpp"
@@ -92,7 +91,9 @@ namespace Symbols
     /// if no symbol is found
     static inline int readSymbol(std::istream& pStream, bool except=true)
     {
-        if (pStream.peek() == EOF)
+        int symbol = pStream.get();
+        
+        if (pStream.eof())
         {
             if (except)
             {
@@ -100,7 +101,7 @@ namespace Symbols
             }
         }
 
-        return pStream.get();
+        return symbol;
     }
 }
 
