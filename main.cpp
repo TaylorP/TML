@@ -8,7 +8,7 @@
 
 int main(int argc, char** argv)
 {
-    if (argc > 2)
+    if (argc == 2)
     {
         std::ifstream fin;
         fin.open(argv[1], std::ios::in);
@@ -26,6 +26,11 @@ int main(int argc, char** argv)
             std::cout << "Error: " << e << std::endl;
             return 1;
         }
+    }
+    else
+    {
+        std::cout << "Usage: tml_parse <input-file> <output-file>"
+                  << std::endl;
     }
 
     return 0;
