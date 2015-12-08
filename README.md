@@ -41,6 +41,7 @@ The following functions are included:
 * @image('annotation", 'url1', 'url2', ...)
 * @code('language', 'code')
 * @latex('latex')
+* @video('vimeo-id', 'width', 'height')
 
 The output of the built-in functions are specific to the HTML used on my website, so I won't go into details of what they produce in terms of output.
 

@@ -22,7 +22,7 @@ public:
         if (pInput.size() != 1)
         {
             throw(FunctionException("@latex",
-                                    "Function expects 1 or 2 parameters"));
+                                    "Function expects exactly 1 parameter"));
         }
 
         // Output the LaTeX in a math block
