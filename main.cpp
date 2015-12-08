@@ -23,9 +23,15 @@ void outputError(std::string& pOutput, bool missing=false)
     }
     else
     {
-        std::cout << "Invalid or inaccessebile output file `"
+        std::cout << "Invalid or inaccessible output file `"
                   << pOutput << "`" << std::endl;
     }
+}
+
+void inputError(std::string& pInput)
+{
+    std::cout << "Invalid or inaccessible input file `"
+          << pInput << "`" << std::endl;
 }
 
 int main(int argc, char** argv)
@@ -77,12 +83,15 @@ int main(int argc, char** argv)
         return 0;
     }
 
-    std::ifstream in;
-    in.open(input, std::ios::in);
+    std::ifstream in(input);
+    if (!in.good())
+    {
+        inputError(input);
+        return 0;
+    }
 
-    std::ofstream out;
-    out.open(output, std::ios::out);
-    if (!out.is_open())
+    std::ofstream out(output);
+    if (!out.good())
     {
         outputError(output);
         return 0;
