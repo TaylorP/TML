@@ -8,7 +8,8 @@
 
 #include "text/symbols.hpp"
 
-ReplacerTable::ReplacerTable()
+ReplacerTable::ReplacerTable(const bool pFilter)
+    : mFilter(pFilter)
 {
     mReplacers.push_back(new ApostropheReplacer(this));
     mReplacers.push_back(new DashReplacer(this));
@@ -102,6 +103,11 @@ void ReplacerTable::replace(std::ostream& pOut, std::istream& pIn)
         // Use the regular character
         if (!consume)
         {
+            if (mFilter && Symbols::isNewline(current))
+            {
+                return;
+            }
+
             pOut << current;
         }
 

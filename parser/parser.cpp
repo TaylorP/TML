@@ -3,6 +3,12 @@
 #include "parser/parser.hpp"
 #include "text/symbols.hpp"
 
+Parser::Parser(const bool pFilter)
+    : mReplacerTable(pFilter),
+      mFunctionTable(pFilter)
+{
+}
+
 void Parser::parse(std::ostream& pOut, std::istream& pIn)
 {
     while (true)

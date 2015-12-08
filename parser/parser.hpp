@@ -9,6 +9,9 @@
 class Parser
 {
 public:
+    /// Constructs a new parser
+    Parser(const bool pFilter);
+    
     /// Parses an input stream and writes HTML code to the output stream
     void parse(std::ostream& pOut, std::istream& pIn);
 

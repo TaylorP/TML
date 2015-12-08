@@ -11,7 +11,7 @@ class FunctionTable
 {
 public:
     /// Constructs a new function table
-    FunctionTable();
+    FunctionTable(const bool pFilter);
 
     /// Cleans up the function table
     ~FunctionTable();

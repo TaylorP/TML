@@ -8,6 +8,12 @@
 class LatexFunction : public Function
 {
 public:
+    /// Constructs a new latex function
+    LatexFunction(const bool pFilter)
+        : Function(pFilter)
+    {
+    }
+
     /// Emits a LaTeX block to the stream
     virtual void emit(std::ostream& pStream,
                       const std::vector<std::string>& pInput) const
@@ -20,9 +26,14 @@ public:
         }
 
         // Output the LaTeX in a math block
-        pStream << "<div class='math'>" << std::endl;
-        pStream << pInput[0] << std::endl;
-        pStream << "</div>" << std::endl;
+        pStream << "<div class='math'>";
+        newline(pStream);
+
+        pStream << pInput[0];
+        newline(pStream);
+        
+        pStream << "</div>";
+        newline(pStream);
     }
 };
 

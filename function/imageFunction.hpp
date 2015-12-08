@@ -8,6 +8,12 @@
 class ImageFunction : public Function
 {
 public:
+    /// Constructs a new image function
+    ImageFunction(const bool pFilter)
+        : Function(pFilter)
+    {
+    }
+
     /// Emits an image block to the stream
     virtual void emit(std::ostream& pStream,
                       const std::vector<std::string>& pInput) const
@@ -23,29 +29,36 @@ public:
         bool annotated = (pInput[0].length() != 0);
 
         // Print the centering block
-        pStream << "<div class='centered'>" << std::endl;
+        pStream << "<div class='centered'>";
+        newline(pStream);
 
         // Print the annotation container if needed
         if (annotated)
         {
-            pStream << "<div class ='annotated-images'>" << std::endl;
+            pStream << "<div class ='annotated-images'>";
+            newline(pStream);
         }
 
         // Print the images
         for (int i = 1; i < pInput.size(); i++)
         {
-            pStream << "<img src='" << pInput[i] << "'/>" << std::endl;
+            pStream << "<img src='" << pInput[i] << "'/>";
+            newline(pStream);
         }
 
         // Add the annotation and close the annotation header
         if (annotated)
         {
-            pStream << "<p>" << pInput[0] << "</p>" << std::endl;
-            pStream << "</div>" << std::endl;
+            pStream << "<p>" << pInput[0] << "</p>";
+            newline(pStream);
+
+            pStream << "</div>";
+            newline(pStream);
         }
 
         // Close the center block
-        pStream << "</div>" << std::endl;
+        pStream << "</div>";
+        newline(pStream);
     }
 };
 

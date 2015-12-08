@@ -8,6 +8,12 @@
 class CodeFunction : public Function
 {
 public:
+    /// Constructs a new code function
+    CodeFunction(const bool pFilter)
+        : Function(pFilter)
+    {
+    }
+
     /// Emits a full width code block to the stream
     virtual void emit(std::ostream& pStream,
                       const std::vector<std::string>& pInput) const
@@ -20,14 +26,16 @@ public:
         }
         
         // Print the pre tag, including the linenums and language class
-        pStream << "<pre class='prettyprint linenums " << pInput[0]
-                << "'>" << std::endl;
+        pStream << "<pre class='prettyprint linenums " << pInput[0] << "'>";
+        newline(pStream);
 
         // Print the code
-        pStream << pInput[1] << std::endl;
+        pStream << pInput[1];
+        newline(pStream);
 
         // Close the pre tag
-        pStream << "</pre>" << std::endl;
+        pStream << "</pre>";
+        newline(pStream);
     }
 };
 

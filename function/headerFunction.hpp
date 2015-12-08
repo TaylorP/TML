@@ -8,6 +8,12 @@
 class HeaderFunction : public Function
 {
 public:
+    /// Constructs a new header function
+    HeaderFunction(const bool pFilter)
+        : Function(pFilter)
+    {
+    }
+
     /// Emits a header block to the stream
     virtual void emit(std::ostream& pStream,
                       const std::vector<std::string>& pInput) const
@@ -20,9 +26,14 @@ public:
         // An id was also provided so generate a link
         else if (pInput.size() == 2)
         {
-            pStream << "<h1 id='" << pInput[1] << "'>" << pInput[0] << std::endl;
-            pStream << "<a href='#" << pInput[1] << "'><div class='link'></div></a>" << std::endl;
-            pStream << "</h1>" << std::endl;
+            pStream << "<h1 id='" << pInput[1] << "'>" << pInput[0];
+            newline(pStream);
+
+            pStream << "<a href='#" << pInput[1] << "'><div class='link'></div></a>";
+            newline(pStream);
+
+            pStream << "</h1>";
+            newline(pStream);
         }
         // Invalid parameter count
         else

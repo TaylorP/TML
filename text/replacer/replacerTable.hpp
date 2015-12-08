@@ -12,7 +12,7 @@ class ReplacerTable
 {
 public:
     /// Constructs a new replacer table instance
-    ReplacerTable();
+    ReplacerTable(const bool pFilter);
 
     /// Destroys a replacer table
     ~ReplacerTable();
@@ -27,6 +27,8 @@ public:
     ReplacerState state() const;
 
 private:
+    /// Set to true if the replacer should filter out newlines
+    bool mFilter;
 
     /// The list of replacers
     std::vector<Replacer*> mReplacers;

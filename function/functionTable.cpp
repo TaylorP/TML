@@ -5,14 +5,14 @@
 #include "function/latexFunction.hpp"
 #include "function/textFunction.hpp"
 
-FunctionTable::FunctionTable()
+FunctionTable::FunctionTable(const bool pFilter)
 {
     // Register built-in functions
-    mTable["code"] = new CodeFunction();
-    mTable["header"] = new HeaderFunction();
-    mTable["image"] = new ImageFunction();
-    mTable["latex"] = new LatexFunction();
-    mTable["text"] = new TextFunction();
+    mTable["code"] = new CodeFunction(pFilter);
+    mTable["header"] = new HeaderFunction(pFilter);
+    mTable["image"] = new ImageFunction(pFilter);
+    mTable["latex"] = new LatexFunction(pFilter);
+    mTable["text"] = new TextFunction(pFilter);
 }
 
 FunctionTable::~FunctionTable()

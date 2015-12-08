@@ -22,9 +22,14 @@ There are no build files for Windows or OS X, but it should be fairly straight f
 ## Usage
 To use TML simply write a document in the markup language, then parse the  it as follows:
 ```
-./tml_parser input.tml output.html
+./tml_parser input.tml
 ```
 An example file `input.tml` is included in this repo. 
+
+By default, the output is written to a file named `out.html` in the same directory. An alternative output file can be specified with the '-o' option. The '-f' option will attempt to strip newlines during output.
+```
+./tml_parser -f -o page.html page.tml
+```
 
 ## Functions
 Utility functions that emit HTML can be defined in C++ and then used as follows:
@@ -32,10 +37,10 @@ Utility functions that emit HTML can be defined in C++ and then used as follows:
 @function(param1, param2, ...)
 ``` 
 The following functions are included:
-* @header("Title", "id")
-* @image("annotation", "url1", "url2", ...)
-* @code("language", "code")
-* @latex("latex")
+* @header('Title', 'id')
+* @image('annotation", 'url1', 'url2', ...)
+* @code('language', 'code')
+* @latex('latex')
 
 The output of the built-in functions are specific to the HTML used on my website, so I won't go into details of what they produce in terms of output.
 

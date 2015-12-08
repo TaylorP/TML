@@ -8,6 +8,12 @@
 class TextFunction : public Function
 {
 public:
+    /// Constructs a new text function
+    TextFunction(const bool pFilter)
+        : Function(pFilter)
+    {
+    }
+
     /// Emits a full width code block to the stream
     virtual void emit(std::ostream& pStream,
                       const std::vector<std::string>& pInput) const
@@ -20,13 +26,16 @@ public:
         }
         
         // Print the paragraph tag
-        pStream << "<p>" << std::endl;
+        pStream << "<p>";
+        newline(pStream);
 
         // Print the plain text content
-        pStream << pInput[0] << std::endl;
+        pStream << pInput[0];
+        newline(pStream);
 
         // Close the paragraph tag
-        pStream << "</p>" << std::endl;
+        pStream << "</p>";
+        newline(pStream);
     }
 };
 
