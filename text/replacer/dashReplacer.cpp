@@ -9,11 +9,10 @@ DashReplacer::DashReplacer(const ReplacerTable* pTable)
 std::string DashReplacer::replace(const char pPrev,
                                   const char pCur,
                                   const char pNext,
-                                  const bool pSkip,
                                   bool& pConsume)
 {
     // Print the replacement or regular output
-    if (Symbols::isHyphen(pCur) && !pSkip)
+    if (Symbols::isHyphen(pCur))
     {
         // Next symbol is also a hyphen, so start a multi-dash
         if (Symbols::isHyphen(pNext))

@@ -19,7 +19,6 @@ public:
     virtual std::string replace(const char pPrev,
                                 const char pCur,
                                 const char pNext,
-                                const bool pSkip,
                                 bool& pConsume);
     
     /// Not used in this replacer

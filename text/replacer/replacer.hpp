@@ -26,7 +26,6 @@ public:
     virtual std::string replace(const char pPrev,
                                 const char pCur,
                                 const char pNext,
-                                const bool pSkip,
                                 bool& pConsume) = 0;
 
     /// Returns the state of the replacer, e.g. if a code block is active

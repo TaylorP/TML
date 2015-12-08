@@ -4,11 +4,10 @@
 std::string ApostropheReplacer::replace(const char pPrev,
                                         const char pCur,
                                         const char pNext,
-                                        const bool pSkip,
                                         bool& pConsume)
 {
     // Print the replacement or regular output
-    if (Symbols::isApos(pCur) && !pSkip)
+    if (Symbols::isApos(pCur))
     {
         if (Symbols::isLetter(pPrev) && Symbols::isLetter(pNext) ||
             pPrev == 's' && !Symbols::isLetter(pNext))

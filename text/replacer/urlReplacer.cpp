@@ -10,7 +10,6 @@ UrlReplacer::UrlReplacer(const ReplacerTable* pTable)
 std::string UrlReplacer::replace(const char pPrev,
                                  const char pCur,
                                  const char pNext,
-                                 const bool pSkip,
                                  bool& pConsume)
 {
     if (mTable->state() == eStateCode)

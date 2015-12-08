@@ -64,23 +64,26 @@ void ReplacerTable::replace(std::ostream& pOut, std::istream& pIn)
             }
         }
 
-        // Apply the replacers in order
         bool consume = false;
-        std::vector<Replacer*>::iterator itr;
-        for(itr = mReplacers.begin(); itr != mReplacers.end(); ++itr)
+
+        if (!skipNext)
         {
-            std::string result =
-                ((Replacer*)(*itr))->replace(previous,
-                                             current,
-                                             next,
-                                             skipNext,
-                                             consume);
-                
-            // Right now we only support one replacer if there's a match
-            if (result.length() > 0)
+            // Apply the replacers in order
+            std::vector<Replacer*>::iterator itr;
+            for(itr = mReplacers.begin(); itr != mReplacers.end(); ++itr)
             {
-                pOut << result;
-                break;
+                std::string result =
+                    ((Replacer*)(*itr))->replace(previous,
+                                                 current,
+                                                 next,
+                                                 consume);
+                    
+                // Right now we only support one replacer if there's a match
+                if (result.length() > 0)
+                {
+                    pOut << result;
+                    break;
+                }
             }
         }
 

@@ -37,11 +37,10 @@ PairReplacer::~PairReplacer()
 std::string PairReplacer::replace(const char pPrev,
                                   const char pCur,
                                   const char pNext,
-                                  const bool pSkip,
                                   bool& pConsume)
 {
     // Return the replacement if one is found
-    if (mReplacements.count(pCur) > 0 && !pSkip)
+    if (mReplacements.count(pCur) > 0)
     {
         pConsume = true;
         return mReplacements[pCur]->replacement();
