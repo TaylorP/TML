@@ -30,7 +30,7 @@ void outputError(std::string& pOutput, bool missing=false)
 
 int main(int argc, char** argv)
 {
-    std::string input = "input.tml";
+    std::string input = "";
     std::string output = "out.html";
     bool filter = false;
 
