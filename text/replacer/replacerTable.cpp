@@ -29,7 +29,7 @@ ReplacerTable::ReplacerTable(const bool pFilter)
                          '`',
                          "<span class=\'inline-code\'>",
                          "</span>",
-                         eStateNormal));
+                         eStateCode));
 }
 
 ReplacerTable::~ReplacerTable()
