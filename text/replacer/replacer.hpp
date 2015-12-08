@@ -16,9 +16,6 @@ public:
     {
     }
 
-    /// Virtual destructor for clean up
-    virtual ~Replacer() {}
-
     /// Runs the replacer on the given input. A return value of empty string
     /// indicates that no replacement was found, while any other return
     /// value will be used during replacement. pConsume indicates if the original

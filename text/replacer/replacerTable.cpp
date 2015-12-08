@@ -10,13 +10,25 @@
 
 ReplacerTable::ReplacerTable()
 {
-    // Register built in replacers
     mReplacers.push_back(new ApostropheReplacer(this));
     mReplacers.push_back(new DashReplacer(this));
     mReplacers.push_back(new UrlReplacer(this));
 
-    // Do pair replacement last since it emits HTML
-    mReplacers.push_back(new PairReplacer(this));
+    mReplacers.push_back(
+        new PairReplacer(this, '\'', "&#8216;", "&#8217;", eStateNormal));
+    mReplacers.push_back(
+        new PairReplacer(this, '"', "&#8220;", "&#8221;", eStateNormal));
+
+    mReplacers.push_back(
+        new PairReplacer(this, '*', "<b>", "</b>", eStateNormal));
+    mReplacers.push_back(
+        new PairReplacer(this, '_', "<i>", "</i>", eStateNormal));
+    mReplacers.push_back(
+        new PairReplacer(this,
+                         '`',
+                         "<span class=\'inline-code\'>",
+                         "</span>",
+                         eStateNormal));
 }
 
 ReplacerTable::~ReplacerTable()

@@ -2,23 +2,21 @@
 #define PAIR_REPLACER_HPP
 
 #include <iostream>
-#include <unordered_map>
 
-#include "text/replacer/pairReplacement.hpp"
 #include "text/replacer/replacer.hpp"
 
-/// Replaces registered pairs of symbols, e.g. *aaaa* or _test_, with
-/// the proper HTML output
+/// Replaces pairs, e.g. *...*, with HTML
 class PairReplacer : public Replacer
 {
 public:
     /// Constructs a new pair replacer
-    PairReplacer(const ReplacerTable* pTable);
+    PairReplacer(const ReplacerTable* pTable,
+                 const char pSymbol,
+                 const std::string& pLeft,
+                 const std::string& pRight,
+                 const ReplacerState pState);
 
-    /// Destroys a pair replacer
-    ~PairReplacer();
-
-    /// Runs all pair replacers on the given input
+    /// Checks for replacement
     virtual std::string replace(const char pPrev,
                                 const char pCur,
                                 const char pNext,
@@ -27,15 +25,27 @@ public:
     /// Used to indicate if a code block is active
     virtual ReplacerState state() const;
 
-    /// Resets the pair replacements
+    /// Resets the pair replacer to the undetected stqate
     virtual void reset();
 
-    /// Verifies that the replacements all completed
+    /// Verifies that no hanging symbols are left
     virtual void verify() const;
 
 private:
-    /// The list of replacements to perform
-    std::unordered_map<char, PairReplacement*> mReplacements;
+    /// The symbol to replace
+    char mSymbol;
+
+    /// The sequence to insert on the left instance
+    std::string mLeft;
+
+    /// The sequence to insert on the right instance
+    std::string mRight;
+
+    /// The state to return when the replacer is active
+    ReplacerState mState;
+
+    /// The current replacement state. false = left, true = right
+    bool mSide;
 };
 
 #endif
