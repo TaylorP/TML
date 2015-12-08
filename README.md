@@ -4,7 +4,7 @@ Taylor Markup Language(TML) is a markup language I use for [my blog and personal
 The language is quite simple to parse. First, a pass is made over the whole document to extract `Function` and `Text` elements. Anything that isn't a function is assumed to be plain text. Functions are executed to output HTML blobs from their inputs, while text elements undergo additional processing to replace quotes, add URLs and perform styling like bold and italic. After processing, each text element is output in a `<p></p>` block as HTML.
 
 ## Disclaimer
-I don't plan to merge any pull requests or guarantee support for the code. Any changes or improvements I make to the tool will be made available here on GitHub. Anyone is welcome to use it for their own projects, of course. Note that current implementation in GitHub still has a few issues which are covered below. These aren't really show-stoppers for me, but I will try to fix them.
+I can't guarantee that I'll merge pull requests or provide support for the code indefinitetly. Any changes or improvements I make to the tool will be made available here on GitHub. Anyone is welcome to use it for their own projects, of course. Note that current implementation in GitHub still has a few issues which are covered below. These aren't really show-stoppers for me, but I will try to fix them.
 
 ## Building
 Just run make in the checked out directory!
@@ -26,7 +26,7 @@ To use TML simply write a document in the markup language, then parse the  it as
 ```
 An example file `input.tml` is included in this repo. 
 
-By default, the output is written to a file named `out.html` in the same directory. An alternative output file can be specified with the '-o' option. The '-f' option will attempt to strip newlines during output.
+By default, the output is written to a file named `out.html` in the same directory. An alternative output file can be specified with the `-o` option. The `-f` option will attempt to strip newlines during output.
 ```
 ./tml_parser -f -o page.html page.tml
 ```
