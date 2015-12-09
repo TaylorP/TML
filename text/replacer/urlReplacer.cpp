@@ -151,7 +151,7 @@ std::string UrlReplacer::emit()
     urlString << "<a href='" << mLink.str() << "'";
     if (mUseTarget)
     {
-        urlString << "target='_" << mTarget.str() << "'";
+        urlString << "target='" << mTarget.str() << "'";
     }
     urlString << ">" << mLabel.str() << "</a>";
 

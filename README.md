@@ -69,9 +69,9 @@ An optional target parameter can also be included:
 ```
 [url-label]{url-link, target}
 ```
-The target automatically has an underscored appended, so for example the following syntax:
+For example the following syntax:
 ```
-[blog]{http://www.taylorpetrick.com, blank}
+[blog]{http://www.taylorpetrick.com, _blank}
 ```
 would produce this html blob:
 ```
