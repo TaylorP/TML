@@ -122,6 +122,7 @@ ReplacerState UrlReplacer::state() const
 
     return eStateNormal;
 }
+
 void UrlReplacer::reset()
 {
     mState = eLabelEnter;
@@ -143,7 +144,7 @@ void UrlReplacer::verify() const
     }
 }
 
-std::string UrlReplacer::emit() const
+std::string UrlReplacer::emit()
 {
     std::stringstream urlString;
     
@@ -153,6 +154,8 @@ std::string UrlReplacer::emit() const
         urlString << "target='_" << mTarget.str() << "'";
     }
     urlString << ">" << mLabel.str() << "</a>";
+
+    reset();
 
     return urlString.str();
 }

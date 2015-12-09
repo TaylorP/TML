@@ -32,7 +32,7 @@ public:
 
 private:
     /// Emits a url string
-    std::string emit() const;
+    std::string emit();
 
     /// Replacer states
     enum State
