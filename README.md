@@ -67,11 +67,11 @@ Urls are generated as follows:
 ```
 An optional target parameter can also be included:
 ```
-[url-label]{url-link, target}
+[url-label]{url-link target}
 ```
 For example the following syntax:
 ```
-[blog]{http://www.taylorpetrick.com, _blank}
+[blog]{http://www.taylorpetrick.com _blank}
 ```
 would produce this html blob:
 ```

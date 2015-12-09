@@ -72,7 +72,7 @@ std::string UrlReplacer::replace(const char pPrev,
                 mState = eLabelEnter;
                 return emit();
             }
-            else if (Symbols::isDelim(pCur))
+            else if (Symbols::isSpace(pCur))
             {
                 mState = eTarget;
                 mUseTarget = true;
@@ -151,7 +151,7 @@ std::string UrlReplacer::emit()
     urlString << "<a href='" << mLink.str() << "'";
     if (mUseTarget)
     {
-        urlString << "target='" << mTarget.str() << "'";
+        urlString << " target='" << mTarget.str() << "'";
     }
     urlString << ">" << mLabel.str() << "</a>";
 
