@@ -1,3 +1,4 @@
+#include "text/replacer/replacerState.hpp"
 #include "text/replacer/replacerTable.hpp"
 #include "text/replacer/urlReplacer.hpp"
 #include "text/symbols.hpp"
@@ -112,6 +113,15 @@ std::string UrlReplacer::replace(const char pPrev,
     return "";
 }
 
+ReplacerState UrlReplacer::state() const
+{
+    if (mState != eLabelEnter)
+    {
+        return eStateUrl;
+    }
+
+    return eStateNormal;
+}
 void UrlReplacer::reset()
 {
     mState = eLabelEnter;

@@ -1,4 +1,5 @@
 #include "text/replacer/pairReplacer.hpp"
+#include "text/replacer/replacerTable.hpp"
 #include "text/colors.hpp"
 #include "text/symbols.hpp"
 
@@ -20,6 +21,11 @@ std::string PairReplacer::replace(const char pPrev,
                                   const char pNext,
                                   bool& pConsume)
 {
+    if (mTable->state() == eStateUrl)
+    {
+        return "";
+    }
+
     // Return the replacement if one is found
     if (pCur == mSymbol)
     {

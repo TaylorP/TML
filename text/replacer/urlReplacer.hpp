@@ -21,8 +21,8 @@ public:
                                 const char pNext,
                                 bool& pConsume);
     
-    /// Not used in this replacer
-    virtual ReplacerState state() const { return eStateNormal; }
+    /// Returns the URL state if the parser is not in the resting state
+    virtual ReplacerState state() const;
 
     /// Resets found state
     virtual void reset();
