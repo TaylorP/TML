@@ -67,7 +67,9 @@ std::string UrlReplacer::replace(const char pPrev,
         {
             pConsume = true;
 
-            if (Symbols::isClosed(pCur) && !Symbols::isClosed(pNext))
+            if (Symbols::isClosed(pCur) && 
+                (Symbols::isSpace(pNext) ||
+                 Symbols::isPunct(pNext)))
             {
                 mState = eLabelEnter;
                 return emit();
@@ -93,7 +95,9 @@ std::string UrlReplacer::replace(const char pPrev,
             {
                 // pass
             }
-            else if (Symbols::isClosed(pCur) && !Symbols::isClosed(pNext))
+            else if (Symbols::isClosed(pCur) && 
+                     (Symbols::isSpace(pNext) ||
+                      Symbols::isPunct(pNext)))
             {
                 mState = eLabelEnter;
                 return emit();

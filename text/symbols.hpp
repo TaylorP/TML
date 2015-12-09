@@ -21,6 +21,14 @@ namespace Symbols
         return isspace(pSymbol);
     }
 
+    /// Returns true if the symbol is puncuation
+    static inline bool isPunct(const int pSymbol)
+    {
+        return pSymbol == '.' || pSymbol == '?' || 
+               pSymbol == '!' || pSymbol == ';' ||
+               pSymbol == ':' || pSymbol == ',';
+    }
+
     /// Returns true if the symbol is an escape character
     static inline bool isEscape(const int pSymbol)
     {
