@@ -80,16 +80,16 @@ would produce this html blob:
 
 ## Symbol replacements
 The following replacements are made to make quotes/dashes more typographically correct:
-* apostrophe (') to &#8217 (&#8217;)
+* apostrophe `'` to &#8217 `&#8217;`
 
-* open-single (') to &#8216 (&#8216;)
-* closed-single (') to &#8217 (&#8217;)
+* open-single `'` to &#8216 `&#8216;`
+* closed-single `'` to &#8217 `&#8217;`
 
-* open-double (") to &#8220 (&#8220;)
-* closed-double (") to &#8221 (&#8221;)
+* open-double `"` to &#8220 `&#8220;`
+* closed-double `"` to &#8221 `&#8221;`
 
-* en-dash (--) to &#8211 (&#8211;)
-* em-dash  (---) to &#8212 (&#8212;)
+* en-dash `--` to &#8211 `&#8211;`
+* em-dash  `---` to &#8212 `&#8212;`
 
 ## Escape syntax
 If a `\` character is put before any of the special characters or quotes, that character or quote will not be parsed or replaced. It'll be treated as a regular symbol.
