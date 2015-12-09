@@ -22,7 +22,7 @@ std::string UrlReplacer::replace(const char pPrev,
     {
         case eLabelEnter:
         {
-            if (Symbols::isUrlOpen(pCur))
+            if (Symbols::isLabelOpen(pCur))
             {
                 mState = eLabel;
                 pConsume = true;
@@ -35,7 +35,7 @@ std::string UrlReplacer::replace(const char pPrev,
         {
             pConsume = true;
 
-            if (Symbols::isUrlClosed(pCur))
+            if (Symbols::isLabelClosed(pCur))
             {
                 mState = eLinkEnter;
             }
@@ -51,10 +51,10 @@ std::string UrlReplacer::replace(const char pPrev,
             pConsume = true;
             mState = eLink;
 
-            if (!Symbols::isOpen(pCur))
+            if (!Symbols::isUrlOpen(pCur))
             {
                 std::cout << "Warning: " << Colors::yellow()
-                          << "Invalid symbol in URL, expected ("
+                          << "Invalid symbol in URL, expected {"
                           << " but found `" << pCur << "`. " 
                           << "Attempting to process anyway."
                           << Colors::reset() << std::endl;
@@ -67,9 +67,7 @@ std::string UrlReplacer::replace(const char pPrev,
         {
             pConsume = true;
 
-            if (Symbols::isClosed(pCur) && 
-                (Symbols::isSpace(pNext) ||
-                 Symbols::isPunct(pNext)))
+            if (Symbols::isUrlClosed(pCur))
             {
                 mState = eLabelEnter;
                 return emit();
@@ -95,9 +93,7 @@ std::string UrlReplacer::replace(const char pPrev,
             {
                 // pass
             }
-            else if (Symbols::isClosed(pCur) && 
-                     (Symbols::isSpace(pNext) ||
-                      Symbols::isPunct(pNext)))
+            else if (Symbols::isUrlClosed(pCur))
             {
                 mState = eLabelEnter;
                 return emit();

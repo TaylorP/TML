@@ -63,15 +63,15 @@ These produce the following HTML elements:
 ## URL syntax
 Urls are generated as follows:
 ```
-[url-label](url-link)
+[url-label]{url-link}
 ```
 An optional target parameter can also be included:
 ```
-[url-label](url-link, target)
+[url-label]{url-link, target}
 ```
 The target automatically has an underscored appended, so for example the following syntax:
 ```
-[blog](http://www.taylorpetrick.com, blank)
+[blog]{http://www.taylorpetrick.com, blank}
 ```
 would produce this html blob:
 ```

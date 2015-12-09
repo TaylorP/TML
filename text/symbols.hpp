@@ -60,15 +60,27 @@ namespace Symbols
     }
 
     /// Returns true if the symbol is an open square bracket
-    static inline bool isUrlOpen(const int pSymbol)
+    static inline bool isLabelOpen(const int pSymbol)
     {
         return pSymbol == '[';
     }
 
     /// Returns true if the symbol is a closed square bracket
-    static inline bool isUrlClosed(const int pSymbol)
+    static inline bool isLabelClosed(const int pSymbol)
     {
         return pSymbol == ']';
+    }
+
+    /// Returns true if the symbol is an open curly bracket
+    static inline bool isUrlOpen(const int pSymbol)
+    {
+        return pSymbol == '{';
+    }
+
+    /// Returns true if the symbol is a closed curly bracket
+    static inline bool isUrlClosed(const int pSymbol)
+    {
+        return pSymbol == '}';
     }
 
     /// Returns true if the symbol is a string quote
