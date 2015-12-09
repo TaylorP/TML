@@ -14,7 +14,8 @@ public:
                  const char pSymbol,
                  const std::string& pLeft,
                  const std::string& pRight,
-                 const ReplacerState pState);
+                 const ReplacerState pState,
+                 const bool pCode=false);
 
     /// Checks for replacement
     virtual std::string replace(const char pPrev,
@@ -46,6 +47,9 @@ private:
 
     /// The current replacement state. false = left, true = right
     bool mSide;
+
+    /// Whether or not the replacment is allowed in code
+    bool mCode;
 };
 
 #endif

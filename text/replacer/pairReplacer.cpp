@@ -7,12 +7,14 @@ PairReplacer::PairReplacer(const ReplacerTable* pTable,
                            const char pSymbol,
                            const std::string& pLeft,
                            const std::string& pRight,
-                           const ReplacerState pState)
+                           const ReplacerState pState,
+                           const bool pCode)
     : Replacer(pTable),
       mSymbol(pSymbol),
       mLeft(pLeft),
       mRight(pRight),
-      mState(pState)
+      mState(pState),
+      mCode(pCode)
 {
 }
 
@@ -21,7 +23,8 @@ std::string PairReplacer::replace(const char pPrev,
                                   const char pNext,
                                   bool& pConsume)
 {
-    if (mTable->state() == eStateUrl)
+    if (mTable->state() == eStateUrl ||
+        (mTable->state() == eStateCode && !mCode))
     {
         return "";
     }
