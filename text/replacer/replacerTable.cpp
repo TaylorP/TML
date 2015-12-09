@@ -21,6 +21,9 @@ ReplacerTable::ReplacerTable(const bool pFilter)
         new PairReplacer(this, '"', "&#8220;", "&#8221;", eStateNormal));
 
     mReplacers.push_back(
+        new PairReplacer(this, '^', "<sup>", "</sup>", eStateNormal));
+
+    mReplacers.push_back(
         new PairReplacer(this, '*', "<b>", "</b>", eStateNormal));
     mReplacers.push_back(
         new PairReplacer(this, '_', "<i>", "</i>", eStateNormal));

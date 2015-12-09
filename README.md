@@ -51,6 +51,7 @@ Bold, italic and inline code elements are generated with the following syntax:
 *bold*
 _italic_
 `inline code`
+^super script^
 ```
 
 These produce the following HTML elements:
