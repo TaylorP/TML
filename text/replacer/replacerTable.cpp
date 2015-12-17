@@ -107,12 +107,10 @@ void ReplacerTable::replace(std::ostream& pOut, std::istream& pIn)
         // Use the regular character
         if (!consume)
         {
-            if (mFilter && Symbols::isNewline(current))
+            if (!mFilter || !Symbols::isNewline(current))
             {
-                return;
+                pOut << current;
             }
-
-            pOut << current;
         }
 
         // Clear the escape flag
