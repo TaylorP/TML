@@ -2,6 +2,8 @@
 
 *Lorem ipsum* dolor sit amet, consectetur adipiscing elit. Mauris volutpat tellus ut sapien vestibulum, vitae eleifend dolor rutrum. Nun'c mattis mollis ultricies. Nullam commodo lorem arcu, nec mattis est tincidunt facilisis. Vivamus tempus, lectus a tincidunt cursus, 'libero risus eleifend' felis, sed tincidunt lectus arcu quis ligula. Integer sagittis a tellus sit amet finibus.
 
+@contents('Google', 'http://www.google.com', 'Yahoo', 'http://www.yahoo.com', 'Bing', 'http://www.bing.com')
+
 Multi
 line
 paragraph
@@ -19,6 +21,6 @@ vec2 dTest = dFdx(test.yz);
 
 Fusce vitae mauris ligula. Phasellus congue tortor non turpis luctus condimentum. Suspendisse nulla lacus, blandit at eros viverra, ornare porttitor orci. Fusce ac odio ultrices, gravida urna eget, eleifend metus. Fusce porta venenatis nisl, eget pulvinar ex sodales a. Integer mollis blandit odio a dictum. Proin eget tempus enim. Aliquam ullamcorper luctus ligula.
 
-@latex('$latex$')
+@latex('$$latex$$')
 
 [Aliquam erat volutpat]{http://www.google.com}. Sed consectetur auctor mi, sed porttitor ligula fermentum sollicitudin. Integer vel posuere odio. Cras in mauris molestie, faucibus ante quis, viverra tellus. Donec tristique quis risus vitae finibus. Phasellus vehicula lacus id augue facilisis, a fringilla enim fringilla. Praesent et magna sed ipsum posuere fringilla at et est.

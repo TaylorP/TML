@@ -1,4 +1,5 @@
 #include "function/codeFunction.hpp"
+#include "function/contentsFunction.hpp"
 #include "function/functionTable.hpp"
 #include "function/headerFunction.hpp"
 #include "function/imageFunction.hpp"
@@ -10,6 +11,7 @@ FunctionTable::FunctionTable(const bool pFilter)
 {
     // Register built-in functions
     mTable["code"] = new CodeFunction(pFilter);
+    mTable["contents"] = new ContentsFunction(pFilter);
     mTable["header"] = new HeaderFunction(pFilter);
     mTable["image"] = new ImageFunction(pFilter);
     mTable["latex"] = new LatexFunction(pFilter);
