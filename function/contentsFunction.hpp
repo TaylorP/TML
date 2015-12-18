@@ -36,9 +36,17 @@ public:
         // Print the entries
         for (int i = 0; i < pInput.size(); i+=2)
         {
+            if (pInput[i+1].length() > 0)
+            {
+                pStream << "<a href='" << pInput[i+1] << "'><li>"
+                        << pInput[i] << "</li></a>";
+            }
+            else
+            {
+                pStream << "<li>"
+                        << pInput[i] << "</li>"; 
+            }
 
-            pStream << "<a href='" << pInput[i+1] << "'><li>"
-                    << pInput[i] << "</li></a>";
             newline(pStream);
         }
 
