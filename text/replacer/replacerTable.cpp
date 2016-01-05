@@ -29,7 +29,7 @@ ReplacerTable::ReplacerTable(const bool pFilter)
         new PairReplacer(this, '_', "<i>", "</i>", eStateNormal));
     mReplacers.push_back(
         new PairReplacer(this, '%',"<span class='number'>",
-                         "</span>", eStateNormal));
+                         "</span>", eStateNumeric));
     mReplacers.push_back(
         new PairReplacer(this, '`', "<span class=\'inline-code\'>",
                          "</span>", eStateCode, true));
