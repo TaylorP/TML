@@ -28,12 +28,11 @@ ReplacerTable::ReplacerTable(const bool pFilter)
     mReplacers.push_back(
         new PairReplacer(this, '_', "<i>", "</i>", eStateNormal));
     mReplacers.push_back(
-        new PairReplacer(this,
-                         '`',
-                         "<span class=\'inline-code\'>",
-                         "</span>",
-                         eStateCode,
-                         true));
+        new PairReplacer(this, '%',"<span class='number'>",
+                         "</span>", eStateNormal));
+    mReplacers.push_back(
+        new PairReplacer(this, '`', "<span class=\'inline-code\'>",
+                         "</span>", eStateCode, true));
 }
 
 ReplacerTable::~ReplacerTable()

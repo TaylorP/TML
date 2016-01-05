@@ -19,7 +19,7 @@ vec3 test = vec3(1.0, gl_FragCoord.x, 2.0);
 vec2 dTest = dFdx(test.yz);
 ')
 
-Fusce vitae mauris ligula. Phasellus congue tortor non turpis luctus condimentum. Suspendisse nulla lacus, blandit at eros viverra, ornare porttitor orci. Fusce ac odio ultrices, gravida urna eget, eleifend metus. Fusce porta venenatis nisl, eget pulvinar ex sodales a. Integer mollis blandit odio a dictum. Proin eget tempus enim. Aliquam ullamcorper luctus ligula.
+Fusce vitae mauris ligula. Phasellus congue tortor non turpis luctus condimentum. Suspendisse nulla lacus, blandit at eros viverra, ornare porttitor orci. Fusce ac odio ultrices, gravida urna eget, eleifend metus. Fusce porta venenatis nisl, eget pulvinar ex sodales a. Integer numeric: %0% --- mollis blandit odio a dictum. Proin eget tempus enim. Aliquam ullamcorper luctus ligula.
 
 @latex('$$latex$$')
 
