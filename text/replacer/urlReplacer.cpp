@@ -13,7 +13,8 @@ std::string UrlReplacer::replace(const char pPrev,
                                  const char pNext,
                                  bool& pConsume)
 {
-    if (mTable->state() == eStateCode)
+    if (mTable->state() == eStateCode ||
+        mTable->state() == eStateNumeric)
     {
         return "";
     }

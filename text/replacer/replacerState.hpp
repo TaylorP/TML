@@ -6,6 +6,7 @@ enum ReplacerState
 {
     eStateNormal,
     eStateCode,
+    eStateNumeric,
     eStateUrl
 };
 

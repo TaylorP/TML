@@ -24,6 +24,7 @@ std::string PairReplacer::replace(const char pPrev,
                                   bool& pConsume)
 {
     if (mTable->state() == eStateUrl ||
+        mTable->state() == eStateNumeric || 
         (mTable->state() == eStateCode && !mCode))
     {
         return "";
