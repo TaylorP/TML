@@ -14,8 +14,7 @@ public:
                  const char pSymbol,
                  const std::string& pLeft,
                  const std::string& pRight,
-                 const ReplacerState pState,
-                 const bool pCode=false);
+                 const ReplacerState pState);
 
     /// Checks for replacement
     virtual std::string replace(const char pPrev,

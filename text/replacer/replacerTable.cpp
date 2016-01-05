@@ -32,7 +32,7 @@ ReplacerTable::ReplacerTable(const bool pFilter)
                          "</span>", eStateNumeric));
     mReplacers.push_back(
         new PairReplacer(this, '`', "<span class=\'inline-code\'>",
-                         "</span>", eStateCode, true));
+                         "</span>", eStateCode));
 }
 
 ReplacerTable::~ReplacerTable()
