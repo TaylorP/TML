@@ -4,6 +4,7 @@
 #include "function/headerFunction.hpp"
 #include "function/imageFunction.hpp"
 #include "function/latexFunction.hpp"
+#include "function/subheaderFunction.hpp"
 #include "function/textFunction.hpp"
 #include "function/videoFunction.hpp"
 
@@ -13,6 +14,7 @@ FunctionTable::FunctionTable(const bool pFilter)
     mTable["code"] = new CodeFunction(pFilter);
     mTable["contents"] = new ContentsFunction(pFilter);
     mTable["header"] = new HeaderFunction(pFilter);
+    mTable["subheader"] = new SubheaderFunction(pFilter);
     mTable["image"] = new ImageFunction(pFilter);
     mTable["latex"] = new LatexFunction(pFilter);
     mTable["text"] = new TextFunction(pFilter);

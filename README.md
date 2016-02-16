@@ -38,6 +38,7 @@ Utility functions that emit HTML can be defined in C++ and then used as follows:
 ``` 
 The following functions are included:
 * @header('Title', 'id')
+* @subheader('Title')
 * @image('annotation", 'url1', 'url2', ...)
 * @code('language', 'code')
 * @contents('name0', 'url0', 'name1', 'url1', ...)

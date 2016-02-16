@@ -1,4 +1,5 @@
 @header('Lorem Ipsum', 'lorem')
+@subheader('Subheader')
 
 *Lorem ipsum* dolor sit amet, consectetur adipiscing elit. Mauris volutpat tellus ut sapien vestibulum, vitae eleifend dolor rutrum. Nun'c mattis mollis ultricies. Nullam commodo lorem arcu, nec mattis est tincidunt facilisis. Vivamus tempus, lectus a tincidunt cursus, 'libero risus eleifend' felis, sed tincidunt lectus arcu quis ligula. Integer sagittis a tellus sit amet finibus.
 
