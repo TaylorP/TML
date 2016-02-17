@@ -29,7 +29,7 @@ public:
             pStream << "<h1 id='" << pInput[1] << "'>" << pInput[0];
             newline(pStream);
 
-            pStream << "<a href='#" << pInput[1] << "'><div class='link'></div></a>";
+            pStream << "<a href='#" << pInput[1] << "'><span class='link'></span></a>";
             newline(pStream);
 
             pStream << "</h1>";
