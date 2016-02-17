@@ -40,9 +40,16 @@ public:
         }
 
         // Print the images
-        for (int i = 1; i < pInput.size(); i++)
+        for (int i = 1; i < pInput.size(); i+=2)
         {
-            pStream << "<img src='" << pInput[i] << "'/>";
+            if (i == pInput.size() - 1)
+            {
+                throw(FunctionException("@image",
+                                        "Function expects alt tag for each image"));
+            }
+
+            pStream << "<img src='" << pInput[i]
+                    << "' alt='" << pInput[i+1] << "'/>";
             newline(pStream);
         }
 

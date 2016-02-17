@@ -9,11 +9,12 @@ Multi
 line
 paragraph
 
-@image('annotation', 'http://www.image.com/image0.png', 'http://www.image.com/image1.png')
+@image('annotation',
+       'http://www.image.com/image0.png', 'the first image',
+       'http://www.image.com/image1.png', 'the second image')
+@image('', 'htttp://www.image.com/image2.png', 'un-annotated image')
 
 _Nullam dictum_ lorem sit amet dapibus [vulputate]{http://www.website.com, blank}. Vestibulum mi risus, varius sed ante et, tristique malesuada lectus. Ut at auctor odio. Vestibulum viverra `arcu et lacinia` posuere. Cras rutrums' dui eget sem ullamcorper, ut viverra od'io mollis. Maecenas eu sem et "ipsum efficitur aliquam sit amet" non tortor.
-
-@image('annotation', 'http://www.image.com/image2.png')
 
 @code('glsl','
 vec3 test = vec3(1.0, gl_FragCoord.x, 2.0);
