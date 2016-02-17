@@ -38,8 +38,8 @@ public:
         {
             if (pInput[i+1].length() > 0)
             {
-                pStream << "<a href='" << pInput[i+1] << "'><li>"
-                        << pInput[i] << "</li></a>";
+                pStream << "<li><a href='" << pInput[i+1] << "'>"
+                        << pInput[i] << "</a></li>";
             }
             else
             {
