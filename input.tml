@@ -26,3 +26,5 @@ Fusce vitae mauris ligula. Phasellus congue tortor non turpis luctus condimentum
 @latex('$$latex$$')
 
 [Aliquam erat volutpat]{http://www.google.com}. Sed consectetur auctor mi, sed porttitor ligula fermentum sollicitudin. Integer vel posuere odio. Cras in mauris molestie, faucibus ante quis, viverra tellus. Donec tristique quis risus vitae finibus. Phasellus vehicula lacus id augue facilisis, a fringilla enim fringilla. Praesent et magna sed ipsum posuere fringilla at et est.
+
+@list('entry 1', 'entry 2', 'entry 3', 'entry 4')

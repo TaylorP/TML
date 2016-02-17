@@ -39,10 +39,11 @@ Utility functions that emit HTML can be defined in C++ and then used as follows:
 The following functions are included:
 * @header('Title', 'id')
 * @subheader('Title')
-* @image('annotation", 'url1', 'alt1', 'url2', 'alt2', ...)
+* @image('annotation", 'url0', 'alt0', 'url1', 'alt1', ...)
 * @code('language', 'code')
 * @contents('name0', 'url0', 'name1', 'url1', ...)
 * @latex('latex')
+* @ist('item0', 'item1', 'item2', ...)
 * @video('vimeo-id', 'width', 'height')
 
 The output of the built-in functions are specific to the HTML used on my website, so I won't go into details of what they produce in terms of output.
